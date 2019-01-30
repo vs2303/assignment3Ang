@@ -35,11 +35,11 @@
     }
 <?php
         }
-        }else{
+    }else{
 
 ?>
 {
-    "success":true,
+    "success":false,
     "message":"Only POST accepted"
 }
 <?php
