@@ -1,15 +1,9 @@
 <?php
     session_start();
-    
-    $user=$_SESSION['user'];
-    if($user =='admin')
+
+    if(isset($_SESSION['user']))
     {
-?>
-        {
-            "message":"Login SuccessFul",
-            "success":true
-        }
-<?php
+        echo '{"message": "'.$_SESSION['user'].'","success":true}';
     }else{
 ?>
         {

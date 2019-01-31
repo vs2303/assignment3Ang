@@ -8,20 +8,18 @@
         $password=$_POST['password'];
 
         try{
-            $selectSQL = "SELECT username, password FROM login WHERE username = '$username' AND password = '$password'";
+            $selectSQL = "SELECT username, password FROM login WHERE username = ? AND password = ?";
             $stmt = $conn->prepare($selectSQL);
-            $stmt->execute();
+            $stmt->execute([$username,$password]);
             $abc = $stmt->fetch();
         }catch(PDOException $e)
         {
             echo $e->getMessage();
         }
-        if($username== $abc['username'] && $password==$abc['password'])
+        if($username== $abc['username'] && $password===$abc['password'])
         {
             $_SESSION['user']=$abc['username'];
 ?>
-
-
     {
         "success":true,
         "secret":"Login Succesful"
